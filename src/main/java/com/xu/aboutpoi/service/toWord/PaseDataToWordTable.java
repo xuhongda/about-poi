@@ -107,7 +107,7 @@ public class PaseDataToWordTable {
     protected static <T> XWPFTable createTable(Class<T> tClass, List<T> objList, XWPFDocument xd, Integer line) {
         //设置表格的行数和列数
         tableRowsColumns(tClass, objList);
-        //需要多构造line行，用于表头
+        //构造表格（行x列） 需要多构造line行，用于表头
         XWPFTable xTable = xd.createTable(rows + line, columns);
 
         //表格属性
@@ -206,9 +206,7 @@ public class PaseDataToWordTable {
     protected static <T> void tableRowsColumns(Class<T> tClass, List<T> objList) {
         Field[] fields = tClass.getDeclaredFields();
         rows = objList.size();
-        columns = fields.length+1;
+        columns = fields.length + 1;
     }
 
-    //设置表格风格
-//    protected
 }

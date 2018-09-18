@@ -19,33 +19,12 @@ public class CombineWord {
 
 
 
-    public static<T> void getTabele(Class<T> tClass, List<T> objList, String filename, Integer line) throws IOException {
-        XWPFDocument document = PaseDataToWordTable.createDoc(tClass);
-
-        XWPFTable xwpfTable = PaseDataToWordTable.createTable(tClass,objList,document,line);
-        //跨列操作
-        mergeCellsHorizontal(xwpfTable,0,2,4);
-        //跨行操作
-        mergeCellsVertically(xwpfTable,0,1,2);
-
-        //设置表头数据
-        PaseDataToWordTable.createTableHeader(tClass, xwpfTable);
-        //插入正文数据
-        PaseDataToWordTable.insertContext(tClass, xwpfTable, objList, line);
-
-        //写入文件
-        String separator = File.separator;
-        FileOutputStream fos = new FileOutputStream(new File("C:" + separator + "java&wordTest", filename + ".docx"));
-        document.write(fos);
-        fos.close();
-    }
-
     /**
      *
      * @param table
      * @param row 第几行从0开始
-     * @param fromCell 横跨几行
-     * @param toCell 从第几列开始
+     * @param fromCell 开始列
+     * @param toCell 截止列
      */
     public static void mergeCellsHorizontal(XWPFTable table, int row, int fromCell, int toCell) {
         for (int cellIndex = fromCell; cellIndex <= toCell; cellIndex++) {
@@ -79,8 +58,6 @@ public class CombineWord {
             }
         }
     }
-
-    /**/
 
 
 }
