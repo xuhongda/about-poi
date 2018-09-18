@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -144,7 +144,7 @@ public class YdWordTable {
     }
 
     static List<Customer> getList() {
-
+        List<Customer> list = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             Customer customer = new Customer();
             customer.setContact("xxx" + i + i % 2);
@@ -153,43 +153,8 @@ public class YdWordTable {
             customer.setName("cc" + i);
             customer.setRemark("100" + i);
             customer.setTelephone("131" + i + i % 2);
+            list.add(customer);
         }
-        Customer customer1 = new Customer();
-        Customer customer2 = new Customer();
-        Customer customer3 = new Customer();
-        Customer customer4 = new Customer();
-        Customer customer5 = new Customer();
-        customer1.setContact("xxx");
-        customer1.setEmail("xx@c.com");
-        customer1.setId(1L);
-        customer1.setName("cc1");
-        customer1.setRemark("100|");
-        customer1.setTelephone("131");
-        customer2.setContact("xxx");
-        customer2.setEmail("xx@c.com");
-        customer2.setId(2L);
-        customer2.setName("cc2");
-        customer2.setRemark("200");
-        customer2.setTelephone("131");
-        customer3.setContact("xxx");
-        customer3.setEmail("xx@c.com");
-        customer3.setId(3L);
-        customer3.setName("cc3");
-        customer3.setRemark("300");
-        customer3.setTelephone("131");
-        customer4.setContact("xxx");
-        customer4.setEmail("xx@c.com");
-        customer4.setId(3L);
-        customer4.setName("cc3");
-        customer4.setRemark("300");
-        customer4.setTelephone("131");
-        customer5.setContact("xxx");
-        customer5.setEmail("xx@c.com");
-        customer5.setId(3L);
-        customer5.setName("cc3");
-        customer5.setRemark("300");
-        customer5.setTelephone("131");
-        List<Customer> customers = Arrays.asList(customer1, customer2, customer3, customer4, customer5);
-        return customers;
+        return list;
     }
 }
